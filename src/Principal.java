@@ -3,13 +3,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
+
     public static void main(String [] args) {
         Scanner Input = new Scanner(System.in);
 
         int HUSelecta;
 
         //Historias de Usuario
-        hu1 HistoriaUsuario1 = new hu1();
         hu2 HistoriaUsuario2 = new hu2();
         hu1e HistoriaUsuarioEncargado1 = new hu1e();
         hu2e HistroiaUsuarioEncargado2 = new hu2e();
@@ -21,9 +21,11 @@ public class Principal {
         //List Reservaciones
         List<Reservacion> ListaReservaciones = new ArrayList<Reservacion>();
 
+        /*
         ListaReservaciones.add(new Reservacion("Salomon", "Aquino", "1", "G", "7:00 AM - 8:00 AM", "1 Proyector"));
         ListaReservaciones.add(new Reservacion("Douglas", "Martinez", "1", "A", "1:40 PM - 3:00 PM", "Audiovisuales 1"));
         ListaReservaciones.add(new Reservacion("Salvador", "Rivas", "1", "C", "9:55 AM - 10:40 AM", "1 Proyector"));
+        */
 
         do {
             System.out.println("----------Historias de Usuario----------");
@@ -47,7 +49,27 @@ public class Principal {
                     break;
                 case 1:
                     System.out.println("-----Historia de Usuario #1-----");
-                    hu1.Mensaje();
+                    String NombreProfesor, ApellidoProfesor, Grado, Seccion, Horario;
+                    Scanner Input1 = new Scanner(System.in);
+
+                    System.out.println("Ingrese el Nombre del Profesor que Solicita Reservar un Proyector");
+                    NombreProfesor = Input1.nextLine();
+
+                    System.out.println("Ingrese el Apellido del Profesor que Solicita Reservar un Proyector");
+                    ApellidoProfesor = Input1.nextLine();
+
+                    System.out.println("Ingrese el Grado, para el Proyector (Solo el Numero)");
+                    Grado = Input1.nextLine();
+
+                    System.out.println("Ingrese la Seccion a Reservar el Proyector");
+                    Seccion = Input1.nextLine();
+
+                    System.out.println("Ingrese el Horario a reservar el Proyector (Hora de Inicio y Hora Final)");
+                    Horario = Input1.nextLine();
+
+                    System.out.println("El Profesor " + NombreProfesor + " " + ApellidoProfesor + " ha Solicitado un Proyector para el Grado " + Grado + "-'" + Seccion + "'" + " ,para el Horario de " + Horario);
+
+                    ListaReservaciones.add(new Reservacion(NombreProfesor, ApellidoProfesor, Grado, Seccion, Horario, "1 Proyector"));
                     break;
                 case 2:
                     System.out.println("-----Historia de Usuario #2-----");
@@ -84,31 +106,6 @@ public class Principal {
                     }
             }
         } while (HUSelecta != 0);
-    }
-}
-
-//Historia de Usuario 1
-class hu1 {
-    public static void Mensaje() {
-        String NombreProfesor, ApellidoProfesor, Grado, Seccion, Horario;
-        Scanner Input = new Scanner(System.in);
-
-        System.out.println("Ingrese el Nombre del Profesor que Solicita Reservar un Proyector");
-        NombreProfesor = Input.nextLine();
-
-        System.out.println("Ingrese el Apellido del Profesor que Solicita Reservar un Proyector");
-        ApellidoProfesor = Input.nextLine();
-
-        System.out.println("Ingrese el Grado, para el Proyector (Solo el Numero)");
-        Grado = Input.nextLine();
-
-        System.out.println("Ingrese la Seccion a Reservar el Proyector");
-        Seccion = Input.nextLine();
-
-        System.out.println("Ingrese el Horario a reservar el Proyector (Hora de Inicio y Hora Final)");
-        Horario = Input.nextLine();
-
-        System.out.println("El Profesor " + NombreProfesor + " " + ApellidoProfesor + " ha Solicitado un Proyector para el Grado " + Grado + "-'" + Seccion + "'" + " ,para el Horario de " + Horario);
     }
 }
 
