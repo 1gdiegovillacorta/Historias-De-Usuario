@@ -9,15 +9,6 @@ public class Principal {
 
         int HUSelecta;
 
-        //Historias de Usuario
-        hu2 HistoriaUsuario2 = new hu2();
-        hu1e HistoriaUsuarioEncargado1 = new hu1e();
-        hu2e HistroiaUsuarioEncargado2 = new hu2e();
-        hu3e HistoriaUsuarioEncargado3 = new hu3e();
-        hu3 HistroiaUsuario3 = new hu3();
-        hu4 HistoriaUsuario4 = new hu4();
-        hu5 HistoriaUsuario5 = new hu5();
-
         //List Reservaciones
         List<Reservacion> ListaReservaciones = new ArrayList<Reservacion>();
 
@@ -47,6 +38,7 @@ public class Principal {
                 case 0:
                     System.out.println("Ejecucion Cancelada");
                     break;
+
                 case 1:
                     System.out.println("-----Historia de Usuario #1-----");
                     String NombreProfesor, ApellidoProfesor, Grado, Seccion, Horario;
@@ -69,35 +61,172 @@ public class Principal {
 
                     System.out.println("El Profesor " + NombreProfesor + " " + ApellidoProfesor + " ha Solicitado un Proyector para el Grado " + Grado + "-'" + Seccion + "'" + " ,para el Horario de " + Horario);
 
+                    //Reservacion
                     ListaReservaciones.add(new Reservacion(NombreProfesor, ApellidoProfesor, Grado, Seccion, Horario, "1 Proyector"));
                     break;
+
                 case 2:
                     System.out.println("-----Historia de Usuario #2-----");
-                    hu2.Mensaje();
+                    Scanner Input2 = new Scanner(System.in);
+                    int NumerodeTelefonos2;
+                    String Grado2, Seccion2, Horario2, Nombre2, Apellido2;
+
+                    System.out.println("Ingrese el Nombre del Profesor");
+                    Nombre2 = Input2.nextLine();
+
+                    System.out.println("Ingrese el Apellido del Profesor");
+                    Apellido2 = Input2.nextLine();
+
+                    System.out.println("Ingrese el Grado");
+                    Grado2 = Input2.nextLine();
+
+                    System.out.println("Ingrese la Seccion");
+                    Seccion2 = Input2.nextLine();
+
+                    System.out.println("Ingrese de que Hora a que hora utilizara los telefonos");
+                    Horario2 = Input2.nextLine();
+
+                    System.out.println("Ingrese el Numero de Telefonos que solicita ");
+                    NumerodeTelefonos2 = Input2.nextInt();
+
+                    System.out.println("El Profesor " + Nombre2 + " " + Apellido2 + " ha Reservado " + NumerodeTelefonos2 + " Telefonos, para el Grado " + Grado2 + "-" + Seccion2 + " para el Horario de" + Horario2);
+
+                    //Reservacion
+                    ListaReservaciones.add(new Reservacion(Nombre2, Apellido2, Grado2, Seccion2, Horario2, NumerodeTelefonos2 + " Telefonos"));
                     break;
+
                 case 3:
                     System.out.println("-----Historia de Usuario #3-----");
-                    hu3.Mensaje();
+                    Scanner Input3 = new Scanner(System.in);
+
+                    String NombreProfesor3, ApellidoProfesor3, Grado3, Seccion3, Horario3, SalonAudiovisual3;
+
+                    System.out.println("Ingrese el Nombre del Profesor");
+                    NombreProfesor3 = Input3.nextLine();
+
+                    System.out.println("Ingrese el Apellido del Profesor");
+                    ApellidoProfesor3 = Input3.nextLine();
+
+                    System.out.println("Ingrese el Grado (Solo el Numero)");
+                    Grado3 = Input3.nextLine();
+
+                    System.out.println("Ingrese la Seccion para Reservar Audiovisuales");
+                    Seccion3 = Input3.nextLine();
+
+                    System.out.println("Ingrese el Horario (Hora de Inicio y Hora Final)");
+                    Horario3 = Input3.nextLine();
+
+                    System.out.println("Ingrese el Salon de Audiovisuales que desea Reservar (Audiovisuales 1, 2, 3)");
+                    SalonAudiovisual3 = Input3.nextLine();
+
+                    System.out.println("El Profesor " + NombreProfesor3 + " " + ApellidoProfesor3 + " ha Solicitado Reservar el Salon de Audiovisuales " + SalonAudiovisual3 + ", para el Grado " + Grado3 + "-" + Seccion3 + " para el Horario " + Horario3);
+
+                    //Reservacion
+                    ListaReservaciones.add(new Reservacion(NombreProfesor3, ApellidoProfesor3, Grado3, Seccion3, Horario3, " Audiovisuales " + SalonAudiovisual3));
                     break;
+
                 case 4:
                     System.out.println("-----Historia de Usuario del Encargado #1-----");
-                    hu1e.Mensaje();;
+
                     break;
+
                 case 5:
                     System.out.println("-----Historia de Usuario del Encargado #2-----");
-                    hu2e.Mensaje();
+                    Scanner teclado = new Scanner(System.in);
+                    String login = "";
+                    String pass = "";
+
+                    while (!login.equals("admin") && !pass.equals("123")) {
+                        System.out.print("Introduzca sus credenciales.");
+                        login=teclado.nextLine();
+                        System.out.print("Introduzca su password.");
+                        pass=teclado.nextLine();
+                    }
+                    System.out.println("Login y pass son correctos.");
+                    System.out.println("Cantidad de celulares en buen estado: 100");
+                    System.out.println("Cantidad de Proeyctores en buen estado: 100");
+                    System.out.println("Cantidad de computadoras en buen estado: 100");
+                    System.out.println("Salones Audiovisuales en buen Estado");
                     break;
+
                 case 6:
                     System.out.println("-----Historia de Usuario del Encargado #3-----");
-                    hu3e.Mensaje();
+                    Scanner teclado3 = new Scanner(System.in);
+                    String login3 = "";
+                    String pass3 = "";
+
+                    while (!login3.equals("admin") && !pass3.equals("123")) {
+                        System.out.print("Introduzca sus credenciales.");
+                        login3 = teclado3.nextLine();
+                        System.out.print("Introduzca su password.");
+                        pass3 = teclado3.nextLine();
+                    }
+                    System.out.println("Login y pass son correctos.");
+                    System.out.println("Cantidad de Computadoras en mal estado: 0");
                     break;
+
                 case 7:
                     System.out.println("-----Historia de Usuario del Encargado #4-----");
-                    hu4.Mensaje();
+                    Scanner Input4 = new Scanner(System.in);
+
+                    String Username4, Password4;
+                    int Proyectores_en_uso, Proyectores_Disponibles;
+
+                    Proyectores_Disponibles = 5;
+                    Proyectores_en_uso = 20;
+
+                    System.out.println("Ingrese su Username");
+                    Username4 = Input4.nextLine();
+
+                    if (Username4.equals("Salomon.Aquino") || Username4.equals("Salvador.Rivas") || Username4.equals("Sebastian.Villalobos")) {
+                        System.out.println("Usuario Encontrado");
+                        System.out.println("Ingrese su Password");
+                        Password4 = Input4.nextLine();
+
+                        if (Password4.equals("Arrupe2022")) {
+                            System.out.println("Bienvenido al Sistema " + Username4);
+                            System.out.println("Proyectores en Uso: " + Proyectores_en_uso);
+                            System.out.println("Proyectores Disponibles: " + Proyectores_Disponibles);
+                            System.out.println("Proyectores en Total: " + (Proyectores_Disponibles + Proyectores_en_uso));
+                        } else {
+                            System.out.println("Password Incorrecto, Intente de Nuevo");
+                        }
+                    } else {
+                        System.out.println("Username Incorrecto");
+                        System.out.println("Lista de Usuarios Registrados: Salomon.Aquino, Salvador.Rivas, Sebastian.Villalobos");
+                    }
                     break;
                 case 8:
                     System.out.println("-----Historia de Usuario del Encargado #5-----");
-                    hu5.Mensaje();
+                    Scanner Input5 = new Scanner(System.in);
+
+                    String Username5, Password5;
+                    boolean Audiovisuales1, Audiovisuales2, Audiovisuales3;
+
+                    Audiovisuales1 = false;
+                    Audiovisuales2 = false;
+                    Audiovisuales3 = true;
+
+                    System.out.println("Ingrese su Username");
+                    Username5 = Input5.nextLine();
+
+                    if (Username5.equals("Salomon.Aquino") || Username5.equals("Salvador.Rivas") || Username5.equals("Sebastian.Villalobos")) {
+                        System.out.println("Usuario Encontrado");
+                        System.out.println("Ingrese su Password");
+                        Password5 = Input5.nextLine();
+
+                        if (Password5.equals("Arrupe2022")) {
+                            System.out.println("Bienvenido al Sitema " + Username5);
+                            System.out.println("Salon de Audiovisuales del Edificio 1, Ocupado: " + Audiovisuales1);
+                            System.out.println("Salon de Audiovisuales del Edificio 2, Ocupado: " + Audiovisuales2);
+                            System.out.println("Salon de Audiovisuales del Edificio 3, Ocupado: " + Audiovisuales3);
+                        } else {
+                            System.out.println("Password Incorreto, Intente de Nuevo");
+                        }
+                    } else {
+                        System.out.println("Username Incorrecto");
+                        System.out.println("Lista de Usuarios Registrados: Salomon.Aquino, Salvador.Rivas, Sebastian.Villalobos");
+                    }
                     break;
                 case 9:
                     System.out.println("-----Lista de Reservaciones-----");
@@ -106,64 +235,6 @@ public class Principal {
                     }
             }
         } while (HUSelecta != 0);
-    }
-}
-
-//Historia de Usuario 2
-class hu2 {
-    public static void Mensaje() {
-        Scanner Input = new Scanner(System.in);
-        int NumerodeTelefonos;
-        String Grado, Seccion, Horario, Nombre, Apellido;
-
-        System.out.println("Ingrese el Nombre del Profesor");
-        Nombre = Input.nextLine();
-
-        System.out.println("Ingrese el Apellido del Profesor");
-        Apellido = Input.nextLine();
-
-        System.out.println("Ingrese el Grado");
-        Grado = Input.nextLine();
-
-        System.out.println("Ingrese la Seccion");
-        Seccion = Input.nextLine();
-
-        System.out.println("Ingrese de que Hora a que hora utilizara los telefonos");
-        Horario = Input.nextLine();
-
-        System.out.println("Ingrese el Numero de Telefonos que solicita ");
-        NumerodeTelefonos = Input.nextInt();
-
-        System.out.println("El Profesor " + Nombre + " " + Apellido + " ha reservado " + NumerodeTelefonos + " telefonos, para el grado " + Grado + Seccion + " para las horas de " + Horario);
-    }
-}
-
-//Historia de Usuario 3
-class hu3 {
-    public static void Mensaje() {
-        Scanner Input = new Scanner(System.in);
-
-        String NombreProfesor, ApellidoProfesor, Grado, Seccion, Horario, SalonAudiovisual;
-
-        System.out.println("Ingrese el Nombre del Profesor");
-        NombreProfesor = Input.nextLine();
-
-        System.out.println("Ingrese el Apellido del Profesor");
-        ApellidoProfesor = Input.nextLine();
-
-        System.out.println("Ingrese el Grado (Solo el Numero)");
-        Grado = Input.nextLine();
-
-        System.out.println("Ingrese la Seccion para Reservar Audiovisuales");
-        Seccion = Input.nextLine();
-
-        System.out.println("Ingrese el Horario (Hora de Inicio y Hora Final)");
-        Horario = Input.nextLine();
-
-        System.out.println("Ingrese el Salon de Audiovisuales que desea Reservar (Audiovisuales 1, 2, 3)");
-        SalonAudiovisual = Input.nextLine();
-
-        System.out.println("El Profesor " + NombreProfesor + " " + ApellidoProfesor + " ha Solicitado Reservar el Salon de Audiovisuales " + SalonAudiovisual + ", para el Grado " + Grado + "-" + Seccion + " para el Horario " + Horario);
     }
 }
 
@@ -190,112 +261,6 @@ class hu1e {
         }
         System.out.println("Login y password son correctos.");
         System.out.println("Cantidad de celulares en uso: 0");
-    }
-}
-
-//Historia de Usuario del Encargado 2
-class hu2e {
-    public static void Mensaje() {
-        Scanner teclado= new Scanner(System.in);
-        String login = "";
-        String pass = "";
-
-        while (!login.equals("admin") && !pass.equals("123")) {
-            System.out.print("Introduzca sus credenciales.");
-            login=teclado.nextLine();
-            System.out.print("Introduzca su password.");
-            pass=teclado.nextLine();
-        }
-        System.out.println("Login y pass son correctos.");
-        System.out.println("Cantidad de celulares en buen estado: 100");
-        System.out.println("Cantidad de cayones en buen estado: 100");
-        System.out.println("Cantidad de computadoras en buen estado: 100");
-        System.out.println("Salon audivisual en buen estado.");
-    }
-}
-
-//Historia de Usuario del Encargado 3
-class hu3e {
-    public static void Mensaje() {
-        Scanner teclado = new Scanner(System.in);
-        String login = "";
-        String pass = "";
-
-        while (!login.equals("admin") && !pass.equals("123")) {
-            System.out.print("Introduzca sus credenciales.");
-            login = teclado.nextLine();
-            System.out.print("Introduzca su password.");
-            pass = teclado.nextLine();
-        }
-        System.out.println("Login y pass son correctos.");
-        System.out.println("Cantidad de computadoras en mal estado: 27");
-    }
-}
-
-class hu4 {
-    public static void Mensaje() {
-        Scanner Input = new Scanner(System.in);
-
-        String Username, Password;
-        int Proyectores_en_uso, Proyectores_Disponibles;
-
-        Proyectores_Disponibles = 5;
-        Proyectores_en_uso = 20;
-
-        System.out.println("Ingrese su Username");
-        Username = Input.nextLine();
-
-        if (Username.equals("Salomon.Aquino") || Username.equals("Salvador.Rivas") || Username.equals("Sebastian.Villalobos")) {
-            System.out.println("Usuario Encontrado");
-            System.out.println("Ingrese su Password");
-            Password = Input.nextLine();
-
-            if (Password.equals("Arrupe2022")) {
-                System.out.println("Bienvenido al Sistema " + Username);
-                System.out.println("Proyectores en Uso: " + Proyectores_en_uso);
-                System.out.println("Proyectores Disponibles: " + Proyectores_Disponibles);
-                System.out.println("Proyectores en Total: " + (Proyectores_Disponibles + Proyectores_en_uso));
-            } else {
-                System.out.println("Password Incorrecto, Intente de Nuevo");
-            }
-        } else {
-            System.out.println("Username Incorrecto");
-            System.out.println("Lista de Usuarios Registrados: Salomon.Aquino, Salvador.Rivas, Sebastian.Villalobos");
-        }
-    }
-}
-
-class hu5 {
-    public static void Mensaje() {
-        Scanner Input = new Scanner(System.in);
-
-        String Username, Password;
-        boolean Audiovisuales1, Audiovisuales2, Audiovisuales3;
-
-        Audiovisuales1 = false;
-        Audiovisuales2 = false;
-        Audiovisuales3 = true;
-
-        System.out.println("Ingrese su Username");
-        Username = Input.nextLine();
-
-        if (Username.equals("Salomon.Aquino") || Username.equals("Salvador.Rivas") || Username.equals("Sebastian.Villalobos")) {
-            System.out.println("Usuario Encontrado");
-            System.out.println("Ingrese su Password");
-            Password = Input.nextLine();
-
-            if (Password.equals("Arrupe2022")) {
-                System.out.println("Bienvenido al Sitema " + Username);
-                System.out.println("Salon de Audiovisuales del Edificio 1, Ocupado: " + Audiovisuales1);
-                System.out.println("Salon de Audiovisuales del Edificio 2, Ocupado: " + Audiovisuales2);
-                System.out.println("Salon de Audiovisuales del Edificio 3, Ocupado: " + Audiovisuales3);
-            } else {
-                System.out.println("Password Incorreto, Intente de Nuevo");
-            }
-        } else {
-            System.out.println("Username Incorrecto");
-            System.out.println("Lista de Usuarios Registrados: Salomon.Aquino, Salvador.Rivas, Sebastian.Villalobos");
-        }
     }
 }
 
