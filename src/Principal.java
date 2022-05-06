@@ -168,7 +168,7 @@ public class Principal {
                     }
                     System.out.println("Login y pass son correctos.");
                     System.out.println("Cantidad de celulares en buen estado: 100");
-                    System.out.println("Cantidad de Proeyctores en buen estado: 100");
+                    System.out.println("Cantidad de Proyectores en buen estado: 100");
                     System.out.println("Cantidad de computadoras en buen estado: 100");
                     System.out.println("Salones Audiovisuales en buen Estado");
                     break;
