@@ -89,7 +89,7 @@ public class Principal {
                     System.out.println("Ingrese el Numero de Telefonos que solicita ");
                     NumerodeTelefonos2 = Input2.nextInt();
 
-                    System.out.println("El Profesor " + Nombre2 + " " + Apellido2 + " ha Reservado " + NumerodeTelefonos2 + " Telefonos, para el Grado " + Grado2 + "-" + Seccion2 + " para el Horario de" + Horario2);
+                    System.out.println("El Profesor " + Nombre2 + " " + Apellido2 + " ha Reservado " + NumerodeTelefonos2 + " Telefonos, para el Grado " + Grado2 + "-" + Seccion2 + " para el Horario de " + Horario2);
 
                     //Reservacion
                     ListaReservaciones.add(new Reservacion(Nombre2, Apellido2, Grado2, Seccion2, Horario2, NumerodeTelefonos2 + " Telefonos"));
@@ -127,7 +127,31 @@ public class Principal {
 
                 case 4:
                     System.out.println("-----Historia de Usuario del Encargado #1-----");
+                    Scanner imput4 = new Scanner(System.in);
 
+                    String Username4e, Password4e;
+                    int Celulares_en_uso4, Celulares_disponibles4;
+                    Celulares_en_uso4 = 10;
+                    Celulares_disponibles4 = 20;
+                    System.out.println("Ingrese su username");
+                    Username4e = imput4.nextLine();
+
+                    if (Username4e.equals("Salomon.Aquino") || Username4e.equals("Salvador.Rivas")) {
+                        System.out.println("Usuario Correcto");
+                        System.out.println("Ingrese su Password");
+                        Password4e = imput4.nextLine();
+
+                        if (Password4e.equals("Pontevedra2022")) {
+                            System.out.println("Bienvenido " + Username4e);
+                            System.out.println("Celulares en uso: " + Celulares_en_uso4);
+                            System.out.println("Celulares disponibles: " + Celulares_disponibles4);
+                        } else {
+                            System.out.println("Password Incorrecto, por favor vuelva a intentar");
+                        }
+                    } else {
+                        System.out.println("Username incorrecto");
+                        System.out.println("Lista de usuarios Registrados: Salomon.Aquino, Salvador.Rivas");
+                    }
                     break;
 
                 case 5:
@@ -235,32 +259,6 @@ public class Principal {
                     }
             }
         } while (HUSelecta != 0);
-    }
-}
-
-//Historia de Usuario del Encargado 1
-class hu1e {
-    public static void Mensaje() {
-        Scanner teclado = new Scanner(System.in);
-        String login = "";
-        String pass = "";
-        String horario = "";
-        String dias = "";
-        String proyectores = "";
-        if (!login.equals("admin") && !pass.equals("2022")) {
-            System.out.print("Hola usuario, Por favor Introducir sus credenciales.");
-            login = teclado.nextLine();
-            System.out.print("Por favor Introduzca su password.");
-            pass = teclado.nextLine();
-            System.out.println("Por favor ingrese el horario solicitado.");
-            horario = teclado.nextLine();
-            System.out.println("Ingrese los dias");
-            dias = teclado.nextLine();
-            System.out.println("Profavor ingrese la cantidad de proyectores");
-            proyectores = teclado.nextLine();
-        }
-        System.out.println("Login y password son correctos.");
-        System.out.println("Cantidad de celulares en uso: 0");
     }
 }
 
