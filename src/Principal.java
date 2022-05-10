@@ -12,22 +12,16 @@ public class Principal {
         //List Reservaciones
         List<Reservacion> ListaReservaciones = new ArrayList<Reservacion>();
 
-        /*
-        ListaReservaciones.add(new Reservacion("Salomon", "Aquino", "1", "G", "7:00 AM - 8:00 AM", "1 Proyector"));
-        ListaReservaciones.add(new Reservacion("Douglas", "Martinez", "1", "A", "1:40 PM - 3:00 PM", "Audiovisuales 1"));
-        ListaReservaciones.add(new Reservacion("Salvador", "Rivas", "1", "C", "9:55 AM - 10:40 AM", "1 Proyector"));
-        */
-
         do {
-            System.out.println("----------Historias de Usuario----------");
-            System.out.println("1. Historia de Usuario #1");
-            System.out.println("2. Historia de Usuario #2");
-            System.out.println("3. Historia de Usuario #3");
-            System.out.println("4. Historia de Usuario del Encargado #1");
-            System.out.println("5. Historia de Usuario del Encargado #2");
-            System.out.println("6. Historia de Usuario del Encargado #3");
-            System.out.println("7. Historia de Usuario del Encargado #4");
-            System.out.println("8. Historia de Usuario del Encargado #5");
+            System.out.println("----------Menu - Sistema de Reservacion de Recursos Multimedia----------");
+            System.out.println("1. Reservacion de un Proyector");
+            System.out.println("2. Reservacion de Telefonos");
+            System.out.println("3. Reservacion de Salon Audiovisual");
+            System.out.println("4. Verificar Disponibilidad de Telefonos");
+            System.out.println("5. Verificar el Estado de los Recursos Multimedia");
+            System.out.println("6. Verificar Computadoras en Mal Estado");
+            System.out.println("7. Verificar Proyectores en Uso y Disponibles");
+            System.out.println("8. Verificar Salones Audiovisuales Disponibles");
             System.out.println("9. Lista de Reservaciones");
 
             System.out.println("Ingrese el Numero de Historia que Desea. Escriba 0 para Cancelar");
@@ -40,7 +34,7 @@ public class Principal {
                     break;
 
                 case 1:
-                    System.out.println("-----Historia de Usuario #1-----");
+                    System.out.println("-----Reservacion de un Proyector-----");
                     String NombreProfesor, ApellidoProfesor, Grado, Seccion, Horario;
                     Scanner Input1 = new Scanner(System.in);
 
@@ -66,7 +60,7 @@ public class Principal {
                     break;
 
                 case 2:
-                    System.out.println("-----Historia de Usuario #2-----");
+                    System.out.println("-----Reservacion de Telefonos-----");
                     Scanner Input2 = new Scanner(System.in);
                     int NumerodeTelefonos2;
                     String Grado2, Seccion2, Horario2, Nombre2, Apellido2;
@@ -96,7 +90,7 @@ public class Principal {
                     break;
 
                 case 3:
-                    System.out.println("-----Historia de Usuario #3-----");
+                    System.out.println("-----Reservacion de Salon Audiovisual-----");
                     Scanner Input3 = new Scanner(System.in);
 
                     String NombreProfesor3, ApellidoProfesor3, Grado3, Seccion3, Horario3, SalonAudiovisual3;
@@ -126,13 +120,12 @@ public class Principal {
                     break;
 
                 case 4:
-                    System.out.println("-----Historia de Usuario del Encargado #1-----");
+                    System.out.println("-----Verificar Disponibilidad de Telefonos-----");
                     Scanner imput4 = new Scanner(System.in);
 
                     String Username4e, Password4e;
-                    int Celulares_en_uso4, Celulares_disponibles4;
-                    Celulares_en_uso4 = 10;
-                    Celulares_disponibles4 = 20;
+                    int Celulares_en_uso4, Celulares_Total4, Celulares_Disponibles;
+
                     System.out.println("Ingrese su username");
                     Username4e = imput4.nextLine();
 
@@ -143,8 +136,17 @@ public class Principal {
 
                         if (Password4e.equals("Pontevedra2022")) {
                             System.out.println("Bienvenido " + Username4e);
-                            System.out.println("Celulares en uso: " + Celulares_en_uso4);
-                            System.out.println("Celulares disponibles: " + Celulares_disponibles4);
+
+                            System.out.println("Ingrese el Numero de Celulares en Total");
+                            Celulares_Total4 = imput4.nextInt();
+
+                            System.out.println("Ingrese el Numero de Celulares en Uso");
+                            Celulares_en_uso4 = imput4.nextInt();
+
+                            System.out.println("Celulares en Total: " + Celulares_Total4);
+                            System.out.println("Celulares en Uso: " + Celulares_en_uso4);
+                            Celulares_Disponibles = Celulares_Total4 - Celulares_en_uso4;
+                            System.out.println("Celulares Disponibles: " + Celulares_Disponibles);
                         } else {
                             System.out.println("Password Incorrecto, por favor vuelva a intentar");
                         }
@@ -155,7 +157,7 @@ public class Principal {
                     break;
 
                 case 5:
-                    System.out.println("-----Historia de Usuario del Encargado #2-----");
+                    System.out.println("-----Verificar el Estado de los Recursos Multimedia-----");
                     Scanner teclado = new Scanner(System.in);
                     String login = "";
                     String pass = "";
@@ -174,7 +176,7 @@ public class Principal {
                     break;
 
                 case 6:
-                    System.out.println("-----Historia de Usuario del Encargado #3-----");
+                    System.out.println("-----Verificar Computadoras en Mal Estado-----");
                     Scanner teclado3 = new Scanner(System.in);
                     String login3 = "";
                     String pass3 = "";
@@ -190,14 +192,11 @@ public class Principal {
                     break;
 
                 case 7:
-                    System.out.println("-----Historia de Usuario del Encargado #4-----");
+                    System.out.println("-----Verificar Proyectores en Uso y Disponibles-----");
                     Scanner Input4 = new Scanner(System.in);
 
                     String Username4, Password4;
-                    int Proyectores_en_uso, Proyectores_Disponibles;
-
-                    Proyectores_Disponibles = 5;
-                    Proyectores_en_uso = 20;
+                    int Proyectores_Total, Proyectores_en_uso, Proyectores_Disponibles;
 
                     System.out.println("Ingrese su Username");
                     Username4 = Input4.nextLine();
@@ -209,9 +208,18 @@ public class Principal {
 
                         if (Password4.equals("Arrupe2022")) {
                             System.out.println("Bienvenido al Sistema " + Username4);
+
+                            System.out.println("Ingrese el Numero de Proyectores en Total");
+                            Proyectores_Total = Input4.nextInt();
+
+                            System.out.println("Ingrese el Numero de Proyectores en Uso");
+                            Proyectores_en_uso = Input4.nextInt();
+
+                            Proyectores_Disponibles = Proyectores_Total - Proyectores_en_uso;
+
+                            System.out.println("Proyectores en Total: " + Proyectores_Total);
                             System.out.println("Proyectores en Uso: " + Proyectores_en_uso);
                             System.out.println("Proyectores Disponibles: " + Proyectores_Disponibles);
-                            System.out.println("Proyectores en Total: " + (Proyectores_Disponibles + Proyectores_en_uso));
                         } else {
                             System.out.println("Password Incorrecto, Intente de Nuevo");
                         }
@@ -221,15 +229,16 @@ public class Principal {
                     }
                     break;
                 case 8:
-                    System.out.println("-----Historia de Usuario del Encargado #5-----");
+                    System.out.println("-----Verificar Salones Audiovisuales Disponibles-----");
                     Scanner Input5 = new Scanner(System.in);
 
                     String Username5, Password5;
                     boolean Audiovisuales1, Audiovisuales2, Audiovisuales3;
+                    String Audiovisuales1STR, Audiovisuales2STR, Audiovisuales3STR;
 
                     Audiovisuales1 = false;
                     Audiovisuales2 = false;
-                    Audiovisuales3 = true;
+                    Audiovisuales3 = false;
 
                     System.out.println("Ingrese su Username");
                     Username5 = Input5.nextLine();
@@ -241,9 +250,19 @@ public class Principal {
 
                         if (Password5.equals("Arrupe2022")) {
                             System.out.println("Bienvenido al Sitema " + Username5);
-                            System.out.println("Salon de Audiovisuales del Edificio 1, Ocupado: " + Audiovisuales1);
-                            System.out.println("Salon de Audiovisuales del Edificio 2, Ocupado: " + Audiovisuales2);
-                            System.out.println("Salon de Audiovisuales del Edificio 3, Ocupado: " + Audiovisuales3);
+
+                            System.out.println("Esta el Salon de Audiovisuales 1 Reservado? SI o NO");
+                            Audiovisuales1STR = Input5.nextLine();
+
+                            System.out.println("Esta el Salon de Audiovisuales 2 Reservado? SI o NO");
+                            Audiovisuales2STR = Input5.nextLine();
+
+                            System.out.println("Esta el Salon de Audiovisuales 3 Reservado? SI o NO");
+                            Audiovisuales3STR = Input5.nextLine();
+
+                            System.out.println("Salon de Audiovisuales del Edificio 1, Reservado: " + Audiovisuales1STR);
+                            System.out.println("Salon de Audiovisuales del Edificio 2, Reservado: " + Audiovisuales2STR);
+                            System.out.println("Salon de Audiovisuales del Edificio 3, Reservado: " + Audiovisuales3STR);
                         } else {
                             System.out.println("Password Incorreto, Intente de Nuevo");
                         }
