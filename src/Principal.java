@@ -19,10 +19,9 @@ public class Principal {
             System.out.println("3. Reservacion de Salon Audiovisual");
             System.out.println("4. Verificar Disponibilidad de Telefonos");
             System.out.println("5. Verificar el Estado de los Recursos Multimedia");
-            System.out.println("6. Verificar Computadoras en Mal Estado");
+            System.out.println("6. Verificar Salones Audiovisuales Disponibles");
             System.out.println("7. Verificar Proyectores en Uso y Disponibles");
-            System.out.println("8. Verificar Salones Audiovisuales Disponibles");
-            System.out.println("9. Lista de Reservaciones");
+            System.out.println("8. Lista de Reservaciones");
 
             System.out.println("Ingrese el Numero de Historia que Desea. Escriba 0 para Cancelar");
             HUSelecta = Input.nextInt();
@@ -158,77 +157,76 @@ public class Principal {
 
                 case 5:
                     System.out.println("-----Verificar el Estado de los Recursos Multimedia-----");
-                    Scanner teclado = new Scanner(System.in);
-                    String login = "";
-                    String pass = "";
+                    Scanner scanner=new Scanner(System.in);
 
-                    while (!login.equals("admin") && !pass.equals("123")) {
-                        System.out.print("Introduzca sus credenciales.");
-                        login=teclado.nextLine();
-                        System.out.print("Introduzca su password.");
-                        pass=teclado.nextLine();
+                    int Celulares = 100, Proyectores = 100, Computadoras = 100;
+                    // int ResultadoCel = 0, ResultadoPro = 0, ResultadoCom = 0;
+                    int /*CanCelA = 0,*/ CanProA = 0, CanComA = 0;
+                    int SumCelA = 0, SumProA = 0, SumComA = 0;
+
+                    while (true) {
+                        System.out.println("*********************************************************");
+                        System.out.println("***** Celulares -----------------------> Presiona 1 ");
+                        System.out.println("***** Proyectores ----------------------> Presiona 2 ");
+                        System.out.println("***** Computadoras ---------------> Presiona 3 ");
+                        System.out.println("**********************************************************");
+
+                        System.out.print("\nIngrese una opcion: ");
+                        int opcion = scanner.nextInt();
+
+                        if(opcion == 1)
+                        {
+                            System.out.print("Ingrese la cantidad de celulares averiados: ");
+                            int CanCelA = scanner.nextInt();
+                            SumCelA = SumCelA + CanCelA;
+                        }
+                        if(opcion == 2)
+                        {
+                            System.out.print("Ingrese la cantidad de proyectores averiados: ");
+                            CanProA = scanner.nextInt();
+                            SumProA = SumProA + CanProA;
+                        }
+
+                        if(opcion == 3)
+                        {
+                            System.out.print("Ingrese la cantidad de Computadoras Averiados: ");
+                            CanComA = scanner.nextInt();
+                            SumComA = SumComA + CanComA;
+                        }
+
+
+                        if (opcion !=1 && opcion !=2 && opcion !=3)
+                        {
+                            System.out.print("Ingrese valores que se indican en pantalla.\n");
+                        }
+
+                        System.out.println("\n=======================================");
+                        System.out.println("\n.");
+
+                        int ResultadoCel = Celulares - SumCelA;
+                        int ResultadoPro = Proyectores - SumProA;
+                        int ResultadoCom = Computadoras - SumComA;
+
+
+                        System.out.println("Celulares en buen estado: " + ResultadoCel + "\nCelulares en mal estado: " + SumCelA);
+                        System.out.println("Proyectores en buen estado: " + ResultadoPro + "\nProyectores en mal estado: " + SumProA);
+                        System.out.println("Computadoras en buen estado: " + ResultadoCom + "\nComputadoras en mal estado: " + SumComA);
+
+                        System.out.println("***Continuar*** Y/N");
+                        String Continuar=scanner.next();
+                        if(Continuar.equals("Y"))
+                        {
+                            System.out.println ("En uso");
+                        }
+                        else if(Continuar.equals("N"))
+                        {
+                            System.out.println ("Gracias por usar nuestro sistema, vuelva pronto.");
+                            break;
+                        }
                     }
-                    System.out.println("Login y pass son correctos.");
-                    System.out.println("Cantidad de celulares en buen estado: 100");
-                    System.out.println("Cantidad de Proyectores en buen estado: 100");
-                    System.out.println("Cantidad de computadoras en buen estado: 100");
-                    System.out.println("Salones Audiovisuales en buen Estado");
                     break;
 
                 case 6:
-                    System.out.println("-----Verificar Computadoras en Mal Estado-----");
-                    Scanner teclado3 = new Scanner(System.in);
-                    String login3 = "";
-                    String pass3 = "";
-
-                    while (!login3.equals("admin") && !pass3.equals("123")) {
-                        System.out.print("Introduzca sus credenciales.");
-                        login3 = teclado3.nextLine();
-                        System.out.print("Introduzca su password.");
-                        pass3 = teclado3.nextLine();
-                    }
-                    System.out.println("Login y pass son correctos.");
-                    System.out.println("Cantidad de Computadoras en mal estado: 0");
-                    break;
-
-                case 7:
-                    System.out.println("-----Verificar Proyectores en Uso y Disponibles-----");
-                    Scanner Input4 = new Scanner(System.in);
-
-                    String Username4, Password4;
-                    int Proyectores_Total, Proyectores_en_uso, Proyectores_Disponibles;
-
-                    System.out.println("Ingrese su Username");
-                    Username4 = Input4.nextLine();
-
-                    if (Username4.equals("Salomon.Aquino") || Username4.equals("Salvador.Rivas") || Username4.equals("Sebastian.Villalobos")) {
-                        System.out.println("Usuario Encontrado");
-                        System.out.println("Ingrese su Password");
-                        Password4 = Input4.nextLine();
-
-                        if (Password4.equals("Arrupe2022")) {
-                            System.out.println("Bienvenido al Sistema " + Username4);
-
-                            System.out.println("Ingrese el Numero de Proyectores en Total");
-                            Proyectores_Total = Input4.nextInt();
-
-                            System.out.println("Ingrese el Numero de Proyectores en Uso");
-                            Proyectores_en_uso = Input4.nextInt();
-
-                            Proyectores_Disponibles = Proyectores_Total - Proyectores_en_uso;
-
-                            System.out.println("Proyectores en Total: " + Proyectores_Total);
-                            System.out.println("Proyectores en Uso: " + Proyectores_en_uso);
-                            System.out.println("Proyectores Disponibles: " + Proyectores_Disponibles);
-                        } else {
-                            System.out.println("Password Incorrecto, Intente de Nuevo");
-                        }
-                    } else {
-                        System.out.println("Username Incorrecto");
-                        System.out.println("Lista de Usuarios Registrados: Salomon.Aquino, Salvador.Rivas, Sebastian.Villalobos");
-                    }
-                    break;
-                case 8:
                     System.out.println("-----Verificar Salones Audiovisuales Disponibles-----");
                     Scanner Input5 = new Scanner(System.in);
 
@@ -271,7 +269,45 @@ public class Principal {
                         System.out.println("Lista de Usuarios Registrados: Salomon.Aquino, Salvador.Rivas, Sebastian.Villalobos");
                     }
                     break;
-                case 9:
+
+                case 7:
+                    System.out.println("-----Verificar Proyectores en Uso y Disponibles-----");
+                    Scanner Input4 = new Scanner(System.in);
+
+                    String Username4, Password4;
+                    int Proyectores_Total, Proyectores_en_uso, Proyectores_Disponibles;
+
+                    System.out.println("Ingrese su Username");
+                    Username4 = Input4.nextLine();
+
+                    if (Username4.equals("Salomon.Aquino") || Username4.equals("Salvador.Rivas") || Username4.equals("Sebastian.Villalobos")) {
+                        System.out.println("Usuario Encontrado");
+                        System.out.println("Ingrese su Password");
+                        Password4 = Input4.nextLine();
+
+                        if (Password4.equals("Arrupe2022")) {
+                            System.out.println("Bienvenido al Sistema " + Username4);
+
+                            System.out.println("Ingrese el Numero de Proyectores en Total");
+                            Proyectores_Total = Input4.nextInt();
+
+                            System.out.println("Ingrese el Numero de Proyectores en Uso");
+                            Proyectores_en_uso = Input4.nextInt();
+
+                            Proyectores_Disponibles = Proyectores_Total - Proyectores_en_uso;
+
+                            System.out.println("Proyectores en Total: " + Proyectores_Total);
+                            System.out.println("Proyectores en Uso: " + Proyectores_en_uso);
+                            System.out.println("Proyectores Disponibles: " + Proyectores_Disponibles);
+                        } else {
+                            System.out.println("Password Incorrecto, Intente de Nuevo");
+                        }
+                    } else {
+                        System.out.println("Username Incorrecto");
+                        System.out.println("Lista de Usuarios Registrados: Salomon.Aquino, Salvador.Rivas, Sebastian.Villalobos");
+                    }
+                    break;
+                case 8:
                     System.out.println("-----Lista de Reservaciones-----");
                     for (int i = 0; i <= ListaReservaciones.size()-1; i++) {
                         System.out.println("Nombre: " + ListaReservaciones.get(i).Nombre + " Apellido: " + ListaReservaciones.get(i).Apellido + " Grado: " + ListaReservaciones.get(i).Grado + "-" + ListaReservaciones.get(i).Seccion + " Horario: " + ListaReservaciones.get(i).Horario + " Reservacion: " + ListaReservaciones.get(i).Reservacion);
